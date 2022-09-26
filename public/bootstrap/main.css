@@ -1,0 +1,11 @@
+.c-success{
+    color: #20c997;
+}
+
+.c-danger{
+    color: firebrick
+}
+
+.pointer:hover{
+    cursor: pointer;
+}
