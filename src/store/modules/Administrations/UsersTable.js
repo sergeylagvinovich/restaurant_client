@@ -1,4 +1,5 @@
 import instance from "@/store/axios";
+import router from "@/router";
 
 export default {
 	namespaced: true,
@@ -32,10 +33,21 @@ export default {
 		//VueXActions
         fetchUsers({state,commit}){
             state.loading = true;
-            instance.get("/users").then((resp)=>{
+			var url = router.currentRoute.value.path;
+            instance.get(url).then((resp)=>{
                 commit('setData',resp.data);
                 state.loading = false;
             })
-        }
+        },
+		deleteUser({state,commit,dispatch},id){
+			var url = router.currentRoute.value.path;
+			url+=`/${id}`;
+			instance({
+				url,
+				method:"DELETE",
+			}).then((resp)=>{
+				dispatch("fetchUsers");
+			})
+		}
 	},
 }

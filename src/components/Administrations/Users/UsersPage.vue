@@ -7,17 +7,7 @@ import {mapActions} from "vuex";
 
 export default {
   name: 'UsersPage',
-  methods:{
-      ...mapActions({
-        'fetch':'userModule/fetchUsers',
-      }),
-      init() {
-        this.fetch();
-      }
-  },
-  mounted() {
-    this.init();
-  }
+
 }
 </script>
 

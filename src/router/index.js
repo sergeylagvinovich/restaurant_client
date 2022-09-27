@@ -6,7 +6,7 @@ import UserEdit from "@/components/Administrations/Users/UserPage/UserEdit";
 
 const routes = [
     {
-        path: '/users',
+        path: '/admin/users',
         name: 'UsersPage',
         component: UsersPage,
         children: [
@@ -19,7 +19,10 @@ const routes = [
                 path: ':id/edit',
                 name: 'UserEdit',
                 component: UserEdit,
-                meta: { method: "PUT" }
+                meta: {
+                    method: "PUT",
+                    subString:"/edit",
+                }
             },
             {
                 path: ':id',
@@ -31,7 +34,10 @@ const routes = [
                 path: 'create',
                 name: 'UserCreate',
                 component: UserEdit,
-                meta: { method: "POST" }
+                meta: {
+                    method: "POST",
+                    subString:"/create",
+                }
             },
         ]
     },

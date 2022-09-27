@@ -40,7 +40,7 @@
             </td>
             <td>
               <span class="material-icons c-success pointer" @click="goTo('UserEdit',{id:item.id})">mode_edit</span>
-              <span class="material-icons c-danger pointer">delete</span>
+              <span class="material-icons c-danger pointer"  @click="deleteUser(item.id)">delete</span>
             </td>
           </tr>
           </tbody>
@@ -67,6 +67,7 @@ export default {
     },
     ...mapActions({
       'fetch':'UsersTable/fetchUsers',
+      'deleteUser':"UsersTable/deleteUser"
     }),
     init() {
       this.fetch();
