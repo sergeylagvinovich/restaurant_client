@@ -1,51 +1,24 @@
 <template>
-  <div class="container py-5">
-    <div class="row">
-      <div class="col">
-        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
-          <ol class="breadcrumb mb-0">
-            <router-link to="/admin/users" tag="li" class="breadcrumb-item">
-              <a>Users</a>
-            </router-link>
-            <router-link to="/users" tag="li" class="breadcrumb-item">
-              <a>Roles</a>
-            </router-link>
-          </ol>
-        </nav>
-      </div>
-    </div>
+  <BaseHeader></BaseHeader>
+  <div class="main-content">
+    <router-view />
   </div>
-  <div class="container">
-    <router-view/>
-  </div>
+  <BaseFooter></BaseFooter>
 </template>
 <script>
-
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
-
+import BaseHeader from "./components/BaseComponents/BaseHeader";
+import BaseFooter from "./components/BaseComponents/BaseFooter";
+import router from "@/router";
+export default {
+  name: "App",
+  components: { BaseHeader, BaseFooter },
+  computed: {
+    vis() {
+      if (router.name === "HomePage") {
+        return false;
+      }
+    },
+  },
+};
 </script>
-<style>
-.router-link-exact-active{
-
-}
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style></style>
