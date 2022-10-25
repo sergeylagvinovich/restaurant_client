@@ -3,7 +3,9 @@
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
         <a href="#" class="navbar-brand text-uppercase font-weight-bold">
-          <div class="logo"></div>
+          <router-link to="/home">
+            <div class="logo"></div>
+          </router-link>
         </a>
         <button
           type="button"
@@ -13,11 +15,12 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
           class="navbar-toggler navbar-toggler-right"
+          @click="showCollapse=!showCollapse"
         >
           <iconify-icon icon="eva:menu-fill" class="burger"></iconify-icon>
         </button>
 
-        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+        <div id="navbarSupportedContent" :class="['collapse navbar-collapse',showCollapse?'show':'']">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <router-link to="/home">
@@ -27,28 +30,33 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link text-uppercase font-weight-bold"
-                >About</a
-              >
+              <router-link to="/about">
+                <a href="#" class="nav-link text-uppercase font-weight-bold"
+                  >About</a
+                >
+              </router-link>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link text-uppercase font-weight-bold"
-                >Gallery</a
-              >
+              <router-link to="/catalog">
+                <a href="#" class="nav-link text-uppercase font-weight-bold"
+                  >Menu</a
+                >
+              </router-link>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link text-uppercase font-weight-bold"
-                >Contact</a
-              >
+              <router-link to="/contact">
+                <a href="#" class="nav-link text-uppercase font-weight-bold"
+                  >Contact</a
+                >
+              </router-link>
             </li>
           </ul>
-          <a href="#"
-            ><iconify-icon
-              icon="ant-design:user-outlined"
-              class="icon-account"
-            ></iconify-icon
-          ></a>
-          <router-link to="/Card">
+          <router-link to="/login">
+            <a href="#"
+              ><iconify-icon icon="ant-design:user-outlined" class="icon-account"></iconify-icon
+            ></a>
+          </router-link>
+          <router-link to="/cart">
             <a href="#"
               ><iconify-icon icon="bx:cart" class="icon-cart"></iconify-icon
             ></a>
@@ -64,6 +72,7 @@ export default {
   data() {
     return {
       user: null,
+      showCollapse:false,
     };
   },
 };

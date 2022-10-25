@@ -177,9 +177,9 @@ body{
 
 
 .book-table{
-    width: 100vw;
+    width: 100%;
     height: auto;
-    display: block;
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center; 
@@ -188,8 +188,6 @@ body{
     padding-top: 120px;
     padding-bottom: 120px;
 }
-
-
 .contact-form-mb-5 {
     margin-bottom: 20px;
   }
@@ -216,6 +214,7 @@ body{
     margin-bottom: 12px;
     text-align: left;
 }
+
 .contact-form-form-input {
     font-family: 'Montserrat', sans-serif;
     width: 100%;
@@ -317,7 +316,7 @@ body{
     padding: 65px 0 45px;
 }
 .footer-area .row-1 .logo-footer{
-    max-width: 90%;
+    max-width: 80%;
     height: auto;
     background-size: contain;
     background-repeat: no-repeat;
@@ -631,6 +630,7 @@ a:hover{
 
 /*Log-in page*/
 .authorization{
+  background-color: #262626;
   background-image: url("/images/log-in-bg.jpg");
   background-size: cover;
   background-position: center center;
@@ -861,9 +861,6 @@ a:hover{
 }
 
 
-/*Catalog*/
-
-
 /*Cart*/
 .section-cart{
     position: relative;
@@ -977,9 +974,6 @@ a:hover{
     width: 21%;
     text-align: right;
 }
-.shopping-cart .checkout {
-    float: right;
-}
 @media screen and (max-width: 767px) {
     .shopping-cart {
       margin: 0;
@@ -1041,3 +1035,601 @@ a:hover{
 
 /*Chechout*/
 
+.checkout-title {
+    width: 100%;
+    height: auto;
+    background-image: url(/images/home-3.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px;
+    padding-bottom: 70px;
+
+}
+.section-checkout {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px;
+    padding-bottom: 100px;
+}
+
+/*Contact Page*/
+.section-contact-info{
+    width: 100%;
+    height: auto;
+    background-image: url(/images/home-5.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding-top: 100px;
+}
+.contact-box-inner.paddings{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding-top: 85px;
+    padding-bottom: 100px;
+}
+.contact-item{
+    width: 31%;
+    padding: 30px;
+    background-color: rgba(38, 38, 38,0.75);
+}
+.contact-icon {
+    font-size: 32px;
+    color: #ffa742;
+    padding: 20px 0;
+}
+.contact-item .title-h5 {
+    max-width: 190px;
+    margin: 0 auto;
+}
+@media(max-width: 991px){
+    .contact-item{
+        width: 48%;
+        padding: 20px 21px 20px 21px;
+        margin-bottom: 25px;
+    }
+}
+@media(max-width: 767px){
+    .contact-item{
+        width: 100%;
+        padding: 40px 21px;
+    }
+}
+.contact-socials {
+    width: 100%;
+    height: auto;
+    background-image: url(/images/home-6.jpg);
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+.contact-socials .socials-footer {
+    font-size: 48px;
+    padding-top: 15px;
+}
+.contact-socials .socials-footer a{
+    color: #262626;
+    padding: 0 6px;
+}
+.contact-socials .socials-footer a:hover{
+    color: #ffa742;
+    transition: all 0.3s;
+}
+
+
+/*About Page*/
+.team-section{
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+.team-section-inner{
+    padding-top: 100px;
+}
+.team-grid-inner {
+    padding-top: 30px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+.team-item {
+    width: 25%;
+    padding: 40px 21px; 
+}
+
+.team-item:hover {
+    background-color: #f5f4ee;
+    transition: all .3s;
+}
+.team-img img{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0px;
+    border: 5px solid #ffa742;
+}
+.counter-section {
+    height: auto;
+    background-color: #262626;
+    display: flex;
+    flex-wrap: wrap;
+}
+.counter-image {
+    width: 50%;
+    padding: 200px 0;
+    background-image: url("/images/about-2.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.counter-grid {
+    position: relative;
+    background-color: #6b7280;
+    width: 50%;
+}
+.counter-grid-inner{
+    display: flex;
+    flex-wrap: wrap;
+}
+.counter-item {
+    width: 50%;
+    padding: 80px 21px;
+    text-align: center;
+}
+.counter-item.black {
+    background-color: #262626;
+}
+.counter-item.yellow {
+    background-color: #ffa742;
+}
+.counter-item.grey {
+    background-color: #f5f4ee;
+}
+.counter-item.grey .counter-icon,
+.counter-item.yellow .counter-icon {
+    color: #262626;
+}
+.counter-icon {
+    color: #ffffff;
+    font-size: 48px;
+}
+.chef-say {
+    background-image: url("/images/about-1.jpg");
+    width: 100%;
+    height: 840px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.chef-words {
+    text-align: left;
+    position: relative;
+}
+.chef-text{
+    padding-top: 80px;
+    padding-left: 100px;
+    max-width: 600px;
+    text-transform: none;
+    font-weight: 500;
+    font-size: 19px;
+}
+.chef-podpis {
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-left: 100px;
+}
+.chef-name {
+    margin: auto 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .team-item {
+        width: 50%;
+    }
+    .chef-text {
+        padding-left: 40px;
+        max-width: 500px;
+    }
+    .chef-podpis {
+        padding-left: 40px;
+        width: 510px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .counter-image,
+    .counter-grid {
+        width: 100%;
+    } 
+    .chef-text {
+        padding-left: 25px;
+        max-width: 380px;
+    }
+    .chef-podpis {
+        padding-left: 25px;
+        width: 400px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .team-item {
+        width: 100%;
+    }
+    .chef-say {
+        height: 660px;
+    }
+}
+
+
+/*Catalog Menu Page*/
+.menu-section{
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+.menu-section-inner{
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+.menu-grid {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.menu-item {
+    width: 25%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+.menu-img {
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.menu-item img {
+    transition: .5s linear;
+}
+.menu-item:hover img {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.menu-item .img-description {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(26, 26, 26, 0.9);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s, visibility .3s;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 25px;
+}
+.menu-item:hover .img-description  {
+    visibility: visible;
+    opacity: 1;
+}
+.menu-item-name {
+    text-align: center;
+}
+.menu-item-description {
+    color: #ffffff;
+    text-align: center;
+    font-weight: 200;
+}
+.menu-grid .button {
+    margin: 0px;
+}
+.menu-grid .button:hover {
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #262626;
+}
+@media screen and (max-width: 1024px) {
+    .menu-item {
+        width: 33.33%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .menu-item {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .menu-item {
+        width: 100%;
+    }
+}
+
+
+/*User Page (Shef, Courier)*/
+.user-title {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-image: url("/images/user-bg.jpg");
+    padding: 130px 21px;
+}
+.user-avatar {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+    margin-top: -130px;
+}
+.user-avatar img {
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    border: 5px solid #ffa742;
+    box-shadow: 0px 6px 25px rgb(0 0 0 / 30%);
+}
+.user-info {
+    display: block;
+    text-align: center;
+    padding: 20px 21px;
+}
+.user-name {
+    text-transform: none;
+    letter-spacing: 0;
+}
+.title-order {
+    display: block;
+    position: relative;
+    padding: 20px 21px;
+    text-transform: none;
+    letter-spacing: 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 50px;
+}
+.check-order {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-bottom: 100px; 
+}
+.frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 24%;
+    height: auto;
+    padding: 30px 30px;
+    border-radius: 4px;
+    box-shadow: 0px 6px 25px rgb(0 0 0 / 20%);
+    overflow: hidden;
+    color: #262626;
+    background: #ffa742;
+    margin-top: 40px;
+  }
+  .todo-cmp {
+    background: #ffffff;
+    color: #262626;
+    padding: 10px 21px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.15);
+    width: 270px;
+  }
+  .todo-cmp__header {
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  .todo-cmp__header .order-name,
+  .todo-cmp__header .order-filter {
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .todo-cmp__list {
+    list-style: none;
+    padding: 0;
+  }
+  .todo-cmp__list li {
+    padding: 10px 0 15px;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+  }
+  .todo-cmp__list li label {
+    cursor: pointer;
+    font-size: 0.82rem;
+    width: 100%;
+    display: block;
+  }
+  .todo-cmp__list li label input {
+    float: right;
+    opacity: 0;
+  }
+  .todo-cmp__list li label span {
+    position: relative;
+    display: block;
+    transition: all 550ms ease-in-out;
+  }
+  .todo-cmp__list li label input + span::after {
+    content: "";
+    display: block;
+    border: 1px solid #ffa742;
+    border-radius: 13px;
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    right: 0;
+    top: 1px;
+    z-index: 10;
+    transition: all 550ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.todo-cmp__list li label input + span::before {
+    content: "✔";
+    display: block;
+    font-size: 22px;
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    right: -2px;
+    top: -8px;
+    z-index: 10;
+    opacity: 0;
+}
+.todo-cmp__list li label input:checked + span {
+    color: #ccc;
+    transition: all 550ms ease-in-out;
+}
+.todo-cmp__list li label input:checked + span::after {
+    opacity: 0;
+    height: 17px;
+    width: 17px;
+    top: -2px;
+    right: -2px;
+}
+.todo-cmp__list li label input:checked + span::before {
+    opacity: 1;
+    transition: all 550ms ease-in-out;
+}
+.button-complete {
+    border: 2px solid #262626;
+    color: #262626;
+    margin: 10px 0px 25px;
+    cursor: pointer;
+}
+.button-complete:hover {
+    background-color: #262626;
+    color: #ffffff;
+}
+
+@media screen and (max-width: 1024px) {
+    .check-order .frame {
+        width: 31%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .check-order .frame {
+        width: 45%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .check-order .frame {
+        width: 90%;
+    }
+}
+
+
+/*User Page for User*/
+#msform {
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    padding: 20px 21px 100px;
+}
+#msform fieldset {
+    background: #ffffff;
+    border: 0 none;
+    border-radius: 4px;
+    box-shadow: 0px 6px 25px rgb(0 0 0 / 30%);
+    padding: 50px 30px;
+    
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 10%;
+    position: relative;
+}
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+.fs-title {
+    text-transform: none;
+    margin-bottom: 0;
+    letter-spacing: 0;
+}
+#progressbar {
+    margin-bottom: 50px;
+    overflow: hidden;
+    counter-reset: step;
+}
+#progressbar li {
+    list-style-type: none;
+    color: #262626;
+    width: 25%;
+    float: left;
+    position: relative;
+}
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    color: #ffffff;
+    background: #262626;
+    border-radius: 4px;
+    margin: 0 auto 10px auto;
+}
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background: #262626;
+    position: absolute;
+    left: -50%;
+    top: 14px;
+    z-index: -1;
+}
+#progressbar li:first-child:after {
+    content: none; 
+}
+#progressbar li.active:before,  #progressbar li.active:after{
+    background: #ffa742;
+    color: #ffffff;
+}
+@media screen and (max-width: 768px) {
+    #msform {
+        width: 10%;
+    }
+}

@@ -107,6 +107,154 @@
     </button>
   </div>
 
+  <div class="menu-grid">
+        <div class="menu-item" v-if="checkActive('pasta')">
+            <div class="menu-item-image">
+                <img class="menu-img" src="/images/menu-01.jpg" alt="">
+            </div>
+            <div class="img-description">
+                <div class="menu-item-name title-h5 title-thin title-color-yellow">Pasta with mussels</div>
+                <div class="menu-item-description divider-10">Ingridients: <br> Spaghetti, mussels, cream, garlic, spices, butter, ground black pepper.</div>
+                <div class="menu-item-add-to-cart divider-30">
+                    <div class="button button-style-flat button-size-small">Add to Cart</div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item" v-if="checkActive('appetizer')">
+            <div class="menu-item-image">
+                <img class="menu-img" src="/images/menu-02.jpg" alt="">
+            </div>
+            <div class="img-description">
+                <div class="menu-item-name title-h5 title-thin title-color-yellow">Vegetable Salad</div>
+                <div class="menu-item-description divider-10">Ingridients: <br>Red Bell pepper, yellow Bell pepper, mushrooms, tomatoes, onions, basil.</div>
+                <div class="menu-item-add-to-cart divider-30">
+                    <div class="button button-style-flat button-size-small">Add to Cart</div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item" v-if="checkActive('meat')">
+            <div class="menu-item-image">
+                <img class="menu-img" src="/images/menu-03.jpg" alt="">
+            </div>
+            <div class="img-description">
+                <div class="menu-item-name title-h5 title-thin title-color-yellow">Pork steak</div>
+                <div class="menu-item-description divider-10">Ingridients: <br> Pork, sauce, bell pepper, cucumber, tomato, onion, spices.</div>
+                <div class="menu-item-add-to-cart divider-30">
+                    <div class="button button-style-flat button-size-small">Add to Cart</div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item" v-if="checkActive('seafood')">
+            <div class="menu-item-image">
+                <img class="menu-img" src="/images/menu-04.jpg" alt="">
+            </div>
+            <div class="img-description">
+                <div class="menu-item-name title-h5 title-thin title-color-yellow">Salmon steak</div>
+                <div class="menu-item-description divider-10">Ingridients: <br> Salmon, signature sauce, basil, lemon, spices.</div>
+                <div class="menu-item-add-to-cart divider-30">
+                    <div class="button button-style-flat button-size-small">Add to Cart</div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item" v-if="checkActive('meat')">
+            <div class="menu-item-image">
+                <img class="menu-img" src="/images/menu-05.jpg" alt="">
+            </div>
+            <div class="img-description">
+                <div class="menu-item-name title-h5 title-thin title-color-yellow">Tenderloin with Shrimp</div>
+                <div class="menu-item-description divider-10">Ingridients: <br> Beef, specialty sauce, lemon, shrimp, octopus, spices.</div>
+                <div class="menu-item-add-to-cart divider-30">
+                    <div class="button button-style-flat button-size-small">Add to Cart</div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item" v-if="checkActive('pasta')">
+            <div class="menu-item-image">
+                <img class="menu-img" src="/images/menu-06.jpg" alt="">
+            </div>
+            <div class="img-description">
+                <div class="menu-item-name title-h5 title-thin title-color-yellow">Pasta with Shrimp</div>
+                <div class="menu-item-description divider-10">Ingridients: <br> Spaghetti, shrimp, mussels, cream, garlic, spices, butter, ground black pepper.</div>
+                <div class="menu-item-add-to-cart divider-30">
+                    <div class="button button-style-flat button-size-small">Add to Cart</div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item" v-if="checkActive('pasta')">
+            <div class="menu-item-image">
+                <img class="menu-img" src="/images/menu-07.jpg" alt="">
+            </div>
+            <div class="img-description">
+                <div class="menu-item-name title-h5 title-thin title-color-yellow">Pasta with Tomatoes</div>
+                <div class="menu-item-description divider-10">Ingridients: <br> Spaghetti, tomatoes, basil, cheese, specialty sauce, spices.</div>
+                <div class="menu-item-add-to-cart divider-30">
+                    <div class="button button-style-flat button-size-small">Add to Cart</div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item" v-if="checkActive('seafood')">
+            <div class="menu-item-image">
+                <img class="menu-img" src="/images/menu-08.jpg" alt="">
+            </div>
+            <div class="img-description">
+                <div class="menu-item-name title-h5 title-thin title-color-yellow">Fish in lemon sauce</div>
+                <div class="menu-item-description divider-10">Ingridients: <br> Fish, tomatoes, lemon juice, basil, spices.</div>
+                <div class="menu-item-add-to-cart divider-30">
+                    <div class="button button-style-flat button-size-small">Add to Cart</div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item" v-if="checkActive('seafood')">
+            <div class="menu-item-image">
+                <img class="menu-img" src="/images/menu-12.jpg" alt="">
+            </div>
+            <div class="img-description">
+                <div class="menu-item-name title-h5 title-thin title-color-yellow">Sea assorted</div>
+                <div class="menu-item-description divider-10">Ingridients: <br> Squid, mussels, shrimp, octopus, spices, signature sauce.</div>
+                <div class="menu-item-add-to-cart divider-30">
+                    <div class="button button-style-flat button-size-small">Add to Cart</div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item" v-if="checkActive('meat')">
+            <div class="menu-item-image">
+                <img class="menu-img" src="/images/menu-13.jpg" alt="">
+            </div>
+            <div class="img-description">
+                <div class="menu-item-name title-h5 title-thin title-color-yellow">Rice noodles</div>
+                <div class="menu-item-description divider-10">Ingridients: <br> Rice noodles, pork, specialty sauce, spices, ground black pepper.</div>
+                <div class="menu-item-add-to-cart divider-30">
+                    <div class="button button-style-flat button-size-small">Add to Cart</div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item" v-if="checkActive('meat')">
+            <div class="menu-item-image">
+                <img class="menu-img" src="/images/menu-14.jpg" alt="">
+            </div>
+            <div class="img-description">
+                <div class="menu-item-name title-h5 title-thin title-color-yellow">Lamb steak</div>
+                <div class="menu-item-description divider-10">Ingridients: <br> Lamb, tomatoes, asparagus, bell pepper, specialty sauce, spices.</div>
+                <div class="menu-item-add-to-cart divider-30">
+                    <div class="button button-style-flat button-size-small">Add to Cart</div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item" v-if="checkActive('appetizer')">
+            <div class="menu-item-image">
+                <img class="menu-img" src="/images/menu-15.jpg" alt="">
+            </div>
+            <div class="img-description">
+                <div class="menu-item-name title-h5 title-thin title-color-yellow">Appetizer with squid</div>
+                <div class="menu-item-description divider-10">Ingridients: <br> Squid, assorted vegetables, apples, specialty sauce, spices.</div>
+                <div class="menu-item-add-to-cart divider-30">
+                    <div class="button button-style-flat button-size-small">Add to Cart</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--   
   <section
     id="grid-container"
     class="transitions-enabled fluid masonry js-masonry menu-grid"
@@ -147,7 +295,7 @@
     <article class="appetizer" v-if="checkActive('appetizer')">
       <img src="images/menu-15.jpg" class="img-menu" />
     </article>
-  </section>
+  </section> -->
 
   <section class="book-table">
     <div class="book-table-inner container paddings">

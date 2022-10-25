@@ -1,9 +1,9 @@
 <template>
-  <BaseHeader></BaseHeader>
+  <BaseHeader v-if="vis"></BaseHeader>
   <div class="main-content">
     <router-view />
   </div>
-  <BaseFooter></BaseFooter>
+  <BaseFooter v-if="vis"></BaseFooter>
 </template>
 <script>
 import BaseHeader from "./components/BaseComponents/BaseHeader";
@@ -14,9 +14,10 @@ export default {
   components: { BaseHeader, BaseFooter },
   computed: {
     vis() {
-      if (router.name === "HomePage") {
+      if (this.$route.name === "LogInPage") {
         return false;
       }
+      return true;
     },
   },
 };
