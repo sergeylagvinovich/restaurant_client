@@ -74,7 +74,7 @@
   <div class="button-group filters-button-group">
     <button
       :class="['button-menu', activeCategory === 'All' ? 'is-checked' : '']"
-      @click="activeCategory = 'All'"
+      @click="activeCategory = 'All'; this.getDishByType(0)"
     >
       Show All
     </button>
@@ -83,220 +83,44 @@
         'button-menu',
         activeCategory === 'appetizer' ? 'is-checked' : '',
       ]"
-      @click="activeCategory = 'appetizer'"
+      @click="activeCategory = 'appetizer'; this.getDishByType(1)"
     >
       Appetizer
     </button>
     <button
       :class="['button-menu', activeCategory === 'pasta' ? 'is-checked' : '']"
-      @click="activeCategory = 'pasta'"
+      @click="activeCategory = 'pasta'; this.getDishByType(2)"
     >
       Pasta
     </button>
     <button
       :class="['button-menu', activeCategory === 'seafood' ? 'is-checked' : '']"
-      @click="activeCategory = 'seafood'"
+      @click="activeCategory = 'seafood'; this.getDishByType(3)"
     >
       Seafood
     </button>
     <button
       :class="['button-menu', activeCategory === 'meat' ? 'is-checked' : '']"
-      @click="activeCategory = 'meat'"
+      @click="activeCategory = 'meat'; this.getDishByType(4)"
     >
       Meat
     </button>
   </div>
 
   <div class="menu-grid">
-        <div class="menu-item" v-if="checkActive('pasta')">
+        <div class="menu-item" v-for="item in getTableData">
             <div class="menu-item-image">
-                <img class="menu-img" src="/images/menu-01.jpg" alt="">
+                <img class="menu-img" :src="getPath+item.imgPath" alt="">
             </div>
             <div class="img-description">
-                <div class="menu-item-name title-h5 title-thin title-color-yellow">Pasta with mussels</div>
-                <div class="menu-item-description divider-10">Ingridients: <br> Spaghetti, mussels, cream, garlic, spices, butter, ground black pepper.</div>
-                <div class="menu-item-add-to-cart divider-30">
-                    <div class="button button-style-flat button-size-small">Add to Cart</div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-item" v-if="checkActive('appetizer')">
-            <div class="menu-item-image">
-                <img class="menu-img" src="/images/menu-02.jpg" alt="">
-            </div>
-            <div class="img-description">
-                <div class="menu-item-name title-h5 title-thin title-color-yellow">Vegetable Salad</div>
-                <div class="menu-item-description divider-10">Ingridients: <br>Red Bell pepper, yellow Bell pepper, mushrooms, tomatoes, onions, basil.</div>
-                <div class="menu-item-add-to-cart divider-30">
-                    <div class="button button-style-flat button-size-small">Add to Cart</div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-item" v-if="checkActive('meat')">
-            <div class="menu-item-image">
-                <img class="menu-img" src="/images/menu-03.jpg" alt="">
-            </div>
-            <div class="img-description">
-                <div class="menu-item-name title-h5 title-thin title-color-yellow">Pork steak</div>
-                <div class="menu-item-description divider-10">Ingridients: <br> Pork, sauce, bell pepper, cucumber, tomato, onion, spices.</div>
-                <div class="menu-item-add-to-cart divider-30">
-                    <div class="button button-style-flat button-size-small">Add to Cart</div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-item" v-if="checkActive('seafood')">
-            <div class="menu-item-image">
-                <img class="menu-img" src="/images/menu-04.jpg" alt="">
-            </div>
-            <div class="img-description">
-                <div class="menu-item-name title-h5 title-thin title-color-yellow">Salmon steak</div>
-                <div class="menu-item-description divider-10">Ingridients: <br> Salmon, signature sauce, basil, lemon, spices.</div>
-                <div class="menu-item-add-to-cart divider-30">
-                    <div class="button button-style-flat button-size-small">Add to Cart</div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-item" v-if="checkActive('meat')">
-            <div class="menu-item-image">
-                <img class="menu-img" src="/images/menu-05.jpg" alt="">
-            </div>
-            <div class="img-description">
-                <div class="menu-item-name title-h5 title-thin title-color-yellow">Tenderloin with Shrimp</div>
-                <div class="menu-item-description divider-10">Ingridients: <br> Beef, specialty sauce, lemon, shrimp, octopus, spices.</div>
-                <div class="menu-item-add-to-cart divider-30">
-                    <div class="button button-style-flat button-size-small">Add to Cart</div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-item" v-if="checkActive('pasta')">
-            <div class="menu-item-image">
-                <img class="menu-img" src="/images/menu-06.jpg" alt="">
-            </div>
-            <div class="img-description">
-                <div class="menu-item-name title-h5 title-thin title-color-yellow">Pasta with Shrimp</div>
-                <div class="menu-item-description divider-10">Ingridients: <br> Spaghetti, shrimp, mussels, cream, garlic, spices, butter, ground black pepper.</div>
-                <div class="menu-item-add-to-cart divider-30">
-                    <div class="button button-style-flat button-size-small">Add to Cart</div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-item" v-if="checkActive('pasta')">
-            <div class="menu-item-image">
-                <img class="menu-img" src="/images/menu-07.jpg" alt="">
-            </div>
-            <div class="img-description">
-                <div class="menu-item-name title-h5 title-thin title-color-yellow">Pasta with Tomatoes</div>
-                <div class="menu-item-description divider-10">Ingridients: <br> Spaghetti, tomatoes, basil, cheese, specialty sauce, spices.</div>
-                <div class="menu-item-add-to-cart divider-30">
-                    <div class="button button-style-flat button-size-small">Add to Cart</div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-item" v-if="checkActive('seafood')">
-            <div class="menu-item-image">
-                <img class="menu-img" src="/images/menu-08.jpg" alt="">
-            </div>
-            <div class="img-description">
-                <div class="menu-item-name title-h5 title-thin title-color-yellow">Fish in lemon sauce</div>
-                <div class="menu-item-description divider-10">Ingridients: <br> Fish, tomatoes, lemon juice, basil, spices.</div>
-                <div class="menu-item-add-to-cart divider-30">
-                    <div class="button button-style-flat button-size-small">Add to Cart</div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-item" v-if="checkActive('seafood')">
-            <div class="menu-item-image">
-                <img class="menu-img" src="/images/menu-12.jpg" alt="">
-            </div>
-            <div class="img-description">
-                <div class="menu-item-name title-h5 title-thin title-color-yellow">Sea assorted</div>
-                <div class="menu-item-description divider-10">Ingridients: <br> Squid, mussels, shrimp, octopus, spices, signature sauce.</div>
-                <div class="menu-item-add-to-cart divider-30">
-                    <div class="button button-style-flat button-size-small">Add to Cart</div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-item" v-if="checkActive('meat')">
-            <div class="menu-item-image">
-                <img class="menu-img" src="/images/menu-13.jpg" alt="">
-            </div>
-            <div class="img-description">
-                <div class="menu-item-name title-h5 title-thin title-color-yellow">Rice noodles</div>
-                <div class="menu-item-description divider-10">Ingridients: <br> Rice noodles, pork, specialty sauce, spices, ground black pepper.</div>
-                <div class="menu-item-add-to-cart divider-30">
-                    <div class="button button-style-flat button-size-small">Add to Cart</div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-item" v-if="checkActive('meat')">
-            <div class="menu-item-image">
-                <img class="menu-img" src="/images/menu-14.jpg" alt="">
-            </div>
-            <div class="img-description">
-                <div class="menu-item-name title-h5 title-thin title-color-yellow">Lamb steak</div>
-                <div class="menu-item-description divider-10">Ingridients: <br> Lamb, tomatoes, asparagus, bell pepper, specialty sauce, spices.</div>
-                <div class="menu-item-add-to-cart divider-30">
-                    <div class="button button-style-flat button-size-small">Add to Cart</div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-item" v-if="checkActive('appetizer')">
-            <div class="menu-item-image">
-                <img class="menu-img" src="/images/menu-15.jpg" alt="">
-            </div>
-            <div class="img-description">
-                <div class="menu-item-name title-h5 title-thin title-color-yellow">Appetizer with squid</div>
-                <div class="menu-item-description divider-10">Ingridients: <br> Squid, assorted vegetables, apples, specialty sauce, spices.</div>
+                <div class="menu-item-name title-h5 title-thin title-color-yellow">{{item.name}}</div>
+                <div class="menu-item-description divider-10">Ingridients: <br>  {{item.dishProducts.map(x=>x.productName).join(", ")}}</div>
                 <div class="menu-item-add-to-cart divider-30">
                     <div class="button button-style-flat button-size-small">Add to Cart</div>
                 </div>
             </div>
         </div>
     </div>
-
-<!--   
-  <section
-    id="grid-container"
-    class="transitions-enabled fluid masonry js-masonry menu-grid"
-  >
-    <article class="pasta" v-if="checkActive('pasta')">
-      <img src="images/menu-01.jpg" class="img-menu" />
-    </article>
-    <article class="appetizer" v-if="checkActive('appetizer')">
-      <img src="images/menu-02.jpg" class="img-menu" />
-    </article>
-    <article class="meat" v-if="checkActive('meat')">
-      <img src="images/menu-03.jpg" class="img-menu" />
-    </article>
-    <article class="seafood" v-if="checkActive('seafood')">
-      <img src="images/menu-04.jpg" class="img-menu" />
-    </article>
-    <article class="meat" v-if="checkActive('meat')">
-      <img src="images/menu-05.jpg" class="img-menu" />
-    </article>
-    <article class="pasta" v-if="checkActive('pasta')">
-      <img src="images/menu-06.jpg" class="img-menu" />
-    </article>
-    <article class="pasta" v-if="checkActive('pasta')">
-      <img src="images/menu-07.jpg" class="img-menu" />
-    </article>
-    <article class="seafood" v-if="checkActive('seafood')">
-      <img src="images/menu-08.jpg" class="img-menu" />
-    </article>
-    <article class="seafood" v-if="checkActive('seafood')">
-      <img src="images/menu-12.jpg" class="img-menu" />
-    </article>
-    <article class="meat" v-if="checkActive('meat')">
-      <img src="images/menu-13.jpg" class="img-menu" />
-    </article>
-    <article class="meat" v-if="checkActive('meat')">
-      <img src="images/menu-14.jpg" class="img-menu" />
-    </article>
-    <article class="appetizer" v-if="checkActive('appetizer')">
-      <img src="images/menu-15.jpg" class="img-menu" />
-    </article>
-  </section> -->
-
   <section class="book-table">
     <div class="book-table-inner container paddings">
       <div class="title-x-large">Reservation</div>
@@ -379,13 +203,14 @@
       </div>
     </div>
   </section>
-
   <div class="container">
     <img class="bottom-img" src="/images/home-5.png" alt="" />
   </div>
 </template>
 
 <script>
+import publicPaths from "@/store/publicPaths";
+import {mapActions, mapGetters, mapMutations} from "vuex";
 export default {
   name: "HomePage",
   data() {
@@ -393,11 +218,32 @@ export default {
       activeCategory: "All",
     };
   },
+  computed:{
+    getPath(){
+      return publicPaths.images;
+    },
+    ...mapGetters({
+      'getTableData':'DishModule/getTableData',
+      'getLoading':'DishModule/getLoading',
+      'getNewDish':'DishModule/getNewDish',
+    }),
+  },
   methods: {
     checkActive(name) {
       return this.activeCategory === name || this.activeCategory === "All";
     },
+    ...mapActions({
+      'getDishByType':'DishModule/getDishesByType',
+    }),
+    ...mapMutations({
+      'setTableData':'DishModule/setTableData',
+      'setLoading':'DishModule/setLoading',
+      'setNewDish':'DishModule/setNewDish',
+    }),
   },
+  mounted() {
+    this.getDishByType(2);
+  }
 };
 </script>
 
