@@ -225,7 +225,6 @@ export default {
     ...mapGetters({
       'getTableData':'DishModule/getTableData',
       'getLoading':'DishModule/getLoading',
-      'getNewDish':'DishModule/getNewDish',
     }),
   },
   methods: {
@@ -242,7 +241,7 @@ export default {
     }),
   },
   mounted() {
-    this.getDishByType(2);
+    this.getDishByType(0);
   }
 };
 </script>

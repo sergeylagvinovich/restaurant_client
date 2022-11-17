@@ -12,6 +12,7 @@ export default {
 	getters:{
 		//VueXGetters
 		getTableData(state){
+			
 			return state.tableData;
 		},
 		getLoading(state){
@@ -38,8 +39,10 @@ export default {
 	actions:{
 		//VueXActions
         getDishesByType({state,dispatch,commit},type){
+			state.loading = true;
             instance.get(`dishes/type/${type}`).then((resp)=>{
 				commit("setTableData",resp.data);
+				state.loading = false;
 				console.log(resp.data);
 			})
         }
