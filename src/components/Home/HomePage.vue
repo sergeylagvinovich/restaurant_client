@@ -116,7 +116,7 @@
                 <div class="menu-item-name title-h5 title-thin title-color-yellow">{{item.name}}</div>
                 <div class="menu-item-description divider-10">Ingridients: <br>  {{item.dishProducts.map(x=>x.productName).join(", ")}}</div>
                 <div class="menu-item-add-to-cart divider-30">
-                    <div class="button button-style-flat button-size-small">Add to Cart</div>
+                    <div class="button button-style-flat button-size-small" @click="addToCart(item.id)">Add to Cart</div>
                 </div>
             </div>
         </div>
@@ -233,6 +233,8 @@ export default {
     },
     ...mapActions({
       'getDishByType':'DishModule/getDishesByType',
+      'testAuth':'DishModule/testAuth',
+      'addToCart':'CartModule/addToCart'
     }),
     ...mapMutations({
       'setTableData':'DishModule/setTableData',

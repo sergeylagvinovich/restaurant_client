@@ -66,7 +66,7 @@
                 <div class="menu-item-description divider-10 title-body">Ingridients: <br/>{{item.dishProducts.map(x=>x.productName).join(", ")}}</div>
                 <div class="menu-price title-h4 title-thin title-color-yellow divider-10">${{item.price}}</div>
                 <div class="menu-item-add-to-cart divider-10">
-                    <div class="button button-style-flat button-size-small">Add to Cart</div>
+                    <div class="button button-style-flat button-size-small" @click="addToCart(item.id)">Add to Cart</div>
                 </div>
             </div>
         </div>
@@ -98,6 +98,7 @@ export default {
     },
     ...mapActions({
       'getDishByType':'DishModule/getDishesByType',
+      'addToCart':'CartModule/addToCart'
     }),
     ...mapMutations({
       'setTableData':'DishModule/setTableData',

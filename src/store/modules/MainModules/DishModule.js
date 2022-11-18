@@ -1,4 +1,6 @@
 import instance from "@/store/axios";
+import axios from "axios";
+import router from "@/router";
 
 export default {
 	namespaced: true,
@@ -44,7 +46,17 @@ export default {
 				commit("setTableData",resp.data);
 				state.loading = false;
 				console.log(resp.data);
+			}).catch((error)=>{
+				if(error.response.status===403){
+					router.push({ name: 'LogInPage'})
+				}
 			})
-        }
+        },
+		testAuth({state,dispatch,commit}){
+			instance.post(`auth/signin`,{email:"1235555@gmail.com",password:"123"}).then((resp)=>{
+
+			})
+		}
+
 	},
 }

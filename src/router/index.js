@@ -44,6 +44,21 @@ const routes = [
         component: LogInPage,
     },
     {
+        path: '/shef',
+        name: 'UserPageShef',
+        component: UserPageShef,
+    },
+    {
+        path: '/courier',
+        name: 'UserPageCourier',
+        component: UserPageCourier,
+    },
+    {
+        path: '/userPageuser',
+        name: 'UserPageUser',
+        component: UserPageUser,
+    },
+    {
 
         // path: '/admin/users',
         // name: 'UsersPage',

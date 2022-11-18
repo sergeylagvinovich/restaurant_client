@@ -3,6 +3,8 @@ import UsersTable from "@/store/modules/Administrations/UsersTable";
 import UserProfile from "@/store/modules/Administrations/UserProfile";
 import RoleModule from "@/store/modules/Administrations/Roles/RoleModule";
 import DishModule from "@/store/modules/MainModules/DishModule";
+import authModule from "@/store/modules/MainModules/authModule";
+import CartModule from "@/store/modules/MainModules/CartModule";
 export default createStore({
   state: {
   },
@@ -16,6 +18,8 @@ export default createStore({
     UsersTable,
     UserProfile,
     RoleModule,
-    DishModule
+    DishModule,
+    authModule,
+    CartModule
   }
 })

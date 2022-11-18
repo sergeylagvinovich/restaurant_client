@@ -17,48 +17,29 @@
             <label class="product-line-price">Total</label>
             </div>
         
-            <div class="product">
-            <div class="product-image">
-                <img src="/images/gallery-1.jpg">
-            </div>
-            <div class="product-details">
-                <div class="product-title">Dingo Dog Bones</div>
-            </div>
-            <div class="product-price">12.99</div>
-            <div class="product-quantity">
-                <input type="number" value="2" min="1">
-            </div>
-            <div class="product-removal">
-                <div>
-                    <a class="remove-product" href="#">Remove</a>
+            <div class="product" v-for="item in getTableData.cartDishes" v-if="getTableData!=null">
+                <div class="product-image">
+                    <img :src="getPath+item.imgPath">
                 </div>
-            </div>
-            <div class="product-line-price">25.98</div>
-            </div>
-        
-            <div class="product">
-            <div class="product-image">
-                <img src="/images/gallery-2.jpg">
-            </div>
-            <div class="product-details">
-                <div class="product-title">Nutro™ Adult Lamb and Rice Dog Food</div>
-            </div>
-            <div class="product-price">45.99</div>
-            <div class="product-quantity">
-                <input type="number" value="1" min="1">
-            </div>
-            <div class="product-removal">
-                <div>
-                    <a class="remove-product" href="#">Remove</a>
+                <div class="product-details">
+                    <div class="product-title">{{item.name}}</div>
                 </div>
-            </div>
-            <div class="product-line-price">45.99</div>
+                <div class="product-price">{{item.price}}</div>
+                <div class="product-quantity">
+                    <input type="number" v-model="item.count" min="1">
+                </div>
+                <div class="product-removal">
+                    <div>
+                        <a class="remove-product" href="#">Remove</a>
+                    </div>
+                </div>
+                <div class="product-line-price">{{(item.price*item.count).toFixed(2)}}</div>
             </div>
         
             <div class="totals">
             <div class="totals-item">
                 <label>Subtotal</label>
-                <div class="totals-value" id="cart-subtotal">71.97</div>
+                <div class="totals-value" id="cart-subtotal">{{getTotal}}</div>
             </div>
             <div class="totals-item">
                 <label>Tax (5%)</label>
@@ -70,7 +51,7 @@
             </div>
             <div class="totals-item totals-item-total">
                 <label>Grand Total</label>
-                <div class="totals-value" id="cart-total">90.57</div>
+                <div class="totals-value" id="cart-total">{{getFinal}}</div>
             </div>
             </div>
         </div>
@@ -93,6 +74,7 @@
                             type="text"
                             name="name"
                             id="name"
+                            v-model="userInfo.userName"
                             placeholder="Full Name"
                             class="contact-form-form-input"
                         />
@@ -103,6 +85,7 @@
                             type="text"
                             name="phone"
                             id="phone"
+                            v-model="userInfo.phone"
                             placeholder="Enter your phone number"
                             class="contact-form-form-input"
                         />
@@ -113,6 +96,7 @@
                             type="email"
                             name="email"
                             id="email"
+                            v-model="userInfo.email"
                             placeholder="Enter your email"
                             class="contact-form-form-input"
                         />
@@ -153,12 +137,13 @@
                             type="text"
                             name="city"
                             id="city"
+                            v-model="userInfo.address"
                             placeholder="Enter address"
                             class="contact-form-form-input"
                             />
                     </div>
                     <div>
-                        <button class="contact-form-btn">ORDER</button>
+                        <button class="contact-form-btn" @click.prevent="toOrder">ORDER</button>
                     </div>
                 </form>
                 </div>
@@ -167,8 +152,61 @@
     </div>
 </template>
 <script>
+import {mapActions, mapGetters, mapMutations} from "vuex";
+import publicPaths from "@/store/publicPaths";
+
 export default {
   name: "CartCheckoutPage",
+  computed:{
+    userInfo:{
+      get(){
+        let user = {
+          userName:null,
+          email:null,
+          phone:null,
+          address:null,
+        }
+        return this.getUserInfo!==null?this.getUserInfo:user;
+      },
+      set(value){
+        this.setUserInfo(value);
+      }
+    },
+    getPath(){
+      return publicPaths.images;
+    },
+    getFinal(){
+      let final = parseFloat(this.getTotal)+15+3.6;
+      return final.toFixed(2);
+    },
+    getTotal(){
+      let arr = this.getTableData.cartDishes;
+      if(arr==undefined)
+        return 0;
+      let total = 0;
+      for (let i = 0; i < arr.length; i++) {
+        total+=arr[i].price*arr[i].count;
+      }
+      return total.toFixed(2);
+    },
+    ...mapGetters({
+      'getTableData':'CartModule/getTableData',
+      'getUserInfo':'CartModule/getUserInfo',
+    }),
+  },
+  methods:{
+    ...mapActions({
+      "getCard":'CartModule/getCard',
+      "toOrder":'CartModule/toOrder'
+    }),
+    ...mapMutations({
+      'setTableData':'CartModule/setTableData',
+      'setUserInfo':'CartModule/setUserInfo'
+    }),
+  },
+  mounted() {
+    this.getCard();
+  }
 };
 </script>
 <style></style>
