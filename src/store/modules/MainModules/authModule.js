@@ -1,5 +1,6 @@
 import instance from "@/store/axios";
 import router from "@/router";
+import axios from "axios";
 export default {
 	namespaced: true,
 	state:{
@@ -53,7 +54,26 @@ export default {
             }).catch((err)=>{
 
             })
-        }
+        },
+		logOut({commit,state,dispatch}){
+			let logout = axios.create({
+				withCredentials: true,
+				baseURL: 'http://localhost:8080/logout',
+				timeout: 100000,
+				headers: {
+					'Content-Type': 'application/json',
+					"Accept":"*/*",
+				}
+			})
+			logout.get("").then((resp)=>{
+				router.push({name:"LogInPage"})
+			}).catch((err)=>{
+
+			}).finally(()=>{
+					router.push({name:"LogInPage"})
+				}
+			)
+		}
 	},
 }
 

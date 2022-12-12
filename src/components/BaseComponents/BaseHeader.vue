@@ -51,11 +51,11 @@
               </router-link>
             </li>
           </ul>
-          <router-link to="/login">
-            <a href="#"
+<!--          <router-link to="/logout">-->
+            <a @click="logout"
               ><iconify-icon icon="ant-design:user-outlined" class="icon-account"></iconify-icon
             ></a>
-          </router-link>
+<!--          </router-link>-->
           <router-link to="/cart">
             <a href="#"
               ><iconify-icon icon="bx:cart" class="icon-cart"></iconify-icon
@@ -67,6 +67,8 @@
   </header>
 </template>
 <script>
+import {mapActions} from "vuex";
+
 export default {
   name: "BaseHeader",
   data() {
@@ -75,6 +77,11 @@ export default {
       showCollapse:false,
     };
   },
+  methods:{
+    ...mapActions({
+    'logout':'authModule/logOut',
+    }),
+  }
 };
 </script>
 <style></style>

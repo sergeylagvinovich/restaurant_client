@@ -5,6 +5,8 @@ import RoleModule from "@/store/modules/Administrations/Roles/RoleModule";
 import DishModule from "@/store/modules/MainModules/DishModule";
 import authModule from "@/store/modules/MainModules/authModule";
 import CartModule from "@/store/modules/MainModules/CartModule";
+import OrderShef from "@/store/modules/MainModules/OrderShef";
+import OrderCourier from "@/store/modules/MainModules/OrderCourier";
 export default createStore({
   state: {
   },
@@ -20,6 +22,8 @@ export default createStore({
     RoleModule,
     DishModule,
     authModule,
-    CartModule
+    CartModule,
+    OrderShef,
+    OrderCourier
   }
 })

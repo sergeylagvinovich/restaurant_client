@@ -8,10 +8,11 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "bootstrap": "^5.2.1",
+    "bootstrap": "^5.2.3",
+    "bootstrap-vue": "^2.23.1",
     "core-js": "^3.8.3",
     "material-icons": "^1.11.11",
-    "vue": "^3.2.39",
+    "vue": "^3.2.45",
     "vue-multiselect": "^2.1.6",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
