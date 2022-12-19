@@ -7,6 +7,8 @@ import authModule from "@/store/modules/MainModules/authModule";
 import CartModule from "@/store/modules/MainModules/CartModule";
 import OrderShef from "@/store/modules/MainModules/OrderShef";
 import OrderCourier from "@/store/modules/MainModules/OrderCourier";
+import OrderCallCenter from "@/store/modules/MainModules/OrderCallCenter";
+import OrderUser from "@/store/modules/MainModules/OrderUser";
 export default createStore({
   state: {
   },
@@ -17,6 +19,8 @@ export default createStore({
   actions: {
   },
   modules: {
+    OrderUser,
+    OrderCallCenter,
     UsersTable,
     UserProfile,
     RoleModule,

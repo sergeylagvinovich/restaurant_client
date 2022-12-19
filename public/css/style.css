@@ -1595,7 +1595,7 @@ a:hover{
 #progressbar li {
     list-style-type: none;
     color: #262626;
-    width: 25%;
+    width: 14%;
     float: left;
     position: relative;
 }

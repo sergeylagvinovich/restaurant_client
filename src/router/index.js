@@ -12,6 +12,7 @@ import CartCheckoutPage from "@/components/CartCheckout/CartCheckoutPage";
 import UserPageShef from "@/components/Administrations/Users/UserPageShef/UserPageShef";
 import UserPageCourier from "@/components/Administrations/Users/UserPageCourier/UserPageCourier";
 import UserPageUser from "@/components/Administrations/Users/UserPageUser/UserPageUser";
+import UserPageCallCenter from "@/components/Administrations/Users/UserPageCallCenter/UserPageCallCenter";
 const routes = [
     {
         path: '/home',
@@ -52,6 +53,11 @@ const routes = [
         path: '/courier',
         name: 'UserPageCourier',
         component: UserPageCourier,
+    },
+    {
+        path: '/callCenter',
+        name: 'UserPageCallCenter',
+        component: UserPageCallCenter,
     },
     {
         path: '/userPageuser',
