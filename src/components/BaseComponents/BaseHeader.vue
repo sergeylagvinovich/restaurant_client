@@ -68,7 +68,7 @@
             <li class="nav-item" v-if="checkRole('CALLCENTER')">
               <router-link to="/callCenter">
                 <a href="#" class="nav-link text-uppercase font-weight-bold"
-                >Courier</a
+                >Call center</a
                 >
               </router-link>
             </li>
@@ -88,9 +88,12 @@
             </li>
           </ul>
 <!--          <router-link to="/logout">-->
-            <a @click="logout"
-              ><iconify-icon icon="ant-design:user-outlined" class="icon-account"></iconify-icon
+  <a @click="logout"
+              ><iconify-icon icon="ic:baseline-log-out" class="icon-account"></iconify-icon
             ></a>
+            <!-- <a @click="logout"
+              ><iconify-icon icon="ant-design:user-outlined" class="icon-account"></iconify-icon
+            ></a> -->
 <!--          </router-link>-->
           <router-link to="/cart">
             <a href="#"

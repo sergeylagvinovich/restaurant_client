@@ -19,18 +19,9 @@
       <li :class="[item.orderStatus>=7?'active':'']">In the way</li>
       <li :class="[item.orderStatus>=8?'active':'']">Delivered</li>
     </ul>
-    <button class="button button-size-small button-style-outline button-complete" @click="fileName = item.filename; selectOrderDishes=item.dishes; showModal = true">Details</button>
+    <button class="button button-size-small button-style-outline button-complete" @click.prevent="fileName = item.fileName; selectOrderDishes=item.dishes; showModal = true">Details</button>
     <fieldset>
-      <div class="fs-title title-h4">Your order is accepted...</div>
-    </fieldset>
-    <fieldset>
-      <div class="fs-title title-h4">Your order is being prepared...</div>
-    </fieldset>
-    <fieldset>
-      <div class="fs-title title-h4">Your order has been delivered to the courier...</div>
-    </fieldset>
-    <fieldset>
-      <div class="fs-title title-h4">Your order has been delivered!</div>
+      <div class="fs-title title-h4">{{getNameByStatus(item.orderStatus)}}</div>
     </fieldset>
   </form>
 
@@ -43,7 +34,7 @@
           <header class="todo-cmp__header">
             <div class="title-h6 order-filter title-thin">№ {{item.orderId}}</div>
           </header>
-          <button class="button button-size-small button-style-outline button-complete" @click="fileName = item.filename; selectOrderDishes=item.dishes; showModal = true">Details</button>
+          <button class="button button-size-small button-style-outline button-complete" @click="fileName = item.fileName; selectOrderDishes=item.dishes; showModal = true">Details</button>
         </section>
       </div>
     </div>
@@ -70,6 +61,41 @@ export default {
     }),
   },
   methods:{
+    getNameByStatus(status){
+        switch(status){
+            case 2:
+            {
+              return "Your order is accepted";
+            }
+            case 3:
+            {
+              return "Your order is started";
+            }
+            case 4:
+            {
+              return "Your order in preparation";
+            }
+            case 5:
+            {
+              return "Your order in process";
+            }
+            case 6:
+            {
+              return "Your order is done";
+            }
+            case 7:
+            {
+              return "Your order in the way";
+            }
+            case 8:
+            {
+              return "Your order is delivered";
+            }
+            default:{
+              return "";
+            }
+        }
+    },
     ...mapMutations({
       'setLoading':'OrderUser/setLoading',
       'setData':'OrderUser/setData',
