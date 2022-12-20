@@ -30,6 +30,7 @@
         <div class="modal-footer">
           <slot name="footer">
             <button class="button button-size-small button-style-outline button-complete" @click="$emit('close')">Close</button>
+            <button class="button button-size-small button-style-outline button-complete" @click="download">Download file</button>
           </slot>
         </div>
       </div>
@@ -39,16 +40,22 @@
 
 <script>
 import publicPaths from "@/store/publicPaths";
-
+import instance from "@/store/axios";
 export default {
   name: "ModalOrderDishes",
   props:{
-    dishes:[]
+    dishes:[],
+    filename:null,
   },
   computed:{
     getPath(){
       return publicPaths.images;
     },
+  },
+  methods:{
+    download(){
+      window.open(`http://localhost:8080/api/v1/orders/download/${this.filename}`, '_blank');
+    }
   }
 }
 </script>

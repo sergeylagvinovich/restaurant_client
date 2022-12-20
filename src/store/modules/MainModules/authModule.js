@@ -12,9 +12,13 @@ export default {
         },
         signUp:true,
         loading:false,
+		authUser:null,
 	},
 	getters:{
 		//VueXGetters
+		getAuthUser(state){
+			return state.authUser
+		},
 		getSignUp(state){
 			return state.signUp;
 		},
@@ -66,13 +70,20 @@ export default {
 				}
 			})
 			logout.get("").then((resp)=>{
-				router.push({name:"LogInPage"})
+
 			}).catch((err)=>{
 
 			}).finally(()=>{
 					router.push({name:"LogInPage"})
 				}
 			)
+		},
+		getUserInfo({commit,state,dispatch}){
+			instance.get("auth/userIfno").then((resp)=>{
+				state.authUser = resp.data
+			}).catch((err)=>{
+				router.push({name:"LogInPage"})
+			})
 		}
 	},
 }

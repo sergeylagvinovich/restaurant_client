@@ -1,5 +1,5 @@
 <template>
-  <ModalOrderDishes v-if="showModal" @close="showModal = false" :dishes="selectOrderDishes"></ModalOrderDishes>
+  <ModalOrderDishes v-if="showModal" @close="showModal = false" :dishes="selectOrderDishes" :filename="fileName"></ModalOrderDishes>
    <div class="user-title"></div>
     <div class="user-avatar">
         <img src="/images/team-5.jpg" alt="">
@@ -37,7 +37,7 @@
               </li>
             </ul>
             <button class="button button-size-small button-style-outline button-complete" @click="setOrderStatus({order:item.orderId,status:8})">Complete</button><br>
-            <button class="button button-size-small button-style-outline button-complete" @click="selectOrderDishes=item.dishes; showModal = true">Details</button>
+            <button class="button button-size-small button-style-outline button-complete" @click="fileName = item.fileName; selectOrderDishes=item.dishes; showModal = true">Details</button>
           </section>
         </div>
       </div>
@@ -51,7 +51,7 @@
               <div class="title-h6 order-filter title-thin">№ {{item.orderId}}</div>
             </header>
             <button class="button button-size-small button-style-outline button-complete" @click="setOrderStatus({order:item.orderId,status:6})">To accept</button>
-            <button class="button button-size-small button-style-outline button-complete" @click="selectOrderDishes=item.dishes; showModal = true">Details</button>
+            <button class="button button-size-small button-style-outline button-complete" @click="fileName = item.fileName; selectOrderDishes=item.dishes; showModal = true">Details</button>
           </section>
         </div>
       </div>
@@ -66,7 +66,8 @@ export default {
   data(){
     return{
       showModal:false,
-      selectOrderDishes:[]
+      selectOrderDishes:[],
+      fileName:null,
     }
   },
   components: {ModalOrderDishes},

@@ -1,5 +1,5 @@
 <template>
-  <ModalOrderDishes v-if="showModal" @close="showModal = false" :dishes="selectOrderDishes"></ModalOrderDishes>
+  <ModalOrderDishes v-if="showModal" @close="showModal = false" :dishes="selectOrderDishes" :filename="fileName"></ModalOrderDishes>
    <div class="user-title"></div>
     <div class="user-avatar">
         <img src="/images/team-7.jpg" alt="">
@@ -19,7 +19,7 @@
       <li :class="[item.orderStatus>=7?'active':'']">In the way</li>
       <li :class="[item.orderStatus>=8?'active':'']">Delivered</li>
     </ul>
-
+    <button class="button button-size-small button-style-outline button-complete" @click="fileName = item.filename; selectOrderDishes=item.dishes; showModal = true">Details</button>
     <fieldset>
       <div class="fs-title title-h4">Your order is accepted...</div>
     </fieldset>
@@ -43,7 +43,7 @@
           <header class="todo-cmp__header">
             <div class="title-h6 order-filter title-thin">№ {{item.orderId}}</div>
           </header>
-          <button class="button button-size-small button-style-outline button-complete" @click="selectOrderDishes=item.dishes; showModal = true">Details</button>
+          <button class="button button-size-small button-style-outline button-complete" @click="fileName = item.filename; selectOrderDishes=item.dishes; showModal = true">Details</button>
         </section>
       </div>
     </div>
@@ -58,7 +58,8 @@ export default {
   data(){
     return{
       showModal:false,
-      selectOrderDishes:[]
+      selectOrderDishes:[],
+      fileName:null,
     }
   },
   components: {ModalOrderDishes},

@@ -50,6 +50,42 @@
                 >
               </router-link>
             </li>
+
+            <li class="nav-item" v-if="checkRole('COOK')">
+              <router-link to="/shef">
+                <a href="#" class="nav-link text-uppercase font-weight-bold"
+                >Shef</a
+                >
+              </router-link>
+            </li>
+            <li class="nav-item" v-if="checkRole('COURIER')">
+              <router-link to="/courier">
+                <a href="#" class="nav-link text-uppercase font-weight-bold"
+                >Courier</a
+                >
+              </router-link>
+            </li>
+            <li class="nav-item" v-if="checkRole('CALLCENTER')">
+              <router-link to="/callCenter">
+                <a href="#" class="nav-link text-uppercase font-weight-bold"
+                >Courier</a
+                >
+              </router-link>
+            </li>
+            <li class="nav-item" v-if="checkRole('USER')">
+              <router-link to="/userPageuser">
+                <a href="#" class="nav-link text-uppercase font-weight-bold"
+                >Orders</a
+                >
+              </router-link>
+            </li>
+            <li class="nav-item" v-if="checkRole('ADMIN')">
+              <router-link to="/admin">
+                <a href="#" class="nav-link text-uppercase font-weight-bold"
+                >Admin</a
+                >
+              </router-link>
+            </li>
           </ul>
 <!--          <router-link to="/logout">-->
             <a @click="logout"
@@ -67,7 +103,7 @@
   </header>
 </template>
 <script>
-import {mapActions} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
   name: "BaseHeader",
@@ -77,10 +113,25 @@ export default {
       showCollapse:false,
     };
   },
+  computed:{
+    ...mapGetters({
+      'getAuthUser':'authModule/getAuthUser',
+    })
+  },
   methods:{
+    checkRole(role){
+      if(this.getAuthUser==null){
+        return false
+      }
+      return this.getAuthUser.userRoles.filter(x=>x.role.name === role).length>0;
+    },
     ...mapActions({
-    'logout':'authModule/logOut',
+        'logout':'authModule/logOut',
+        'getUserInfo':'authModule/getUserInfo',
     }),
+  },
+  mounted() {
+    this.getUserInfo();
   }
 };
 </script>

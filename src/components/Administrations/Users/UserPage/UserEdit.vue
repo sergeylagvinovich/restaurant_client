@@ -28,6 +28,15 @@
           <hr>
           <div class="row">
             <div class="col-sm-3">
+              <p class="mb-0">Password</p>
+            </div>
+            <div class="col-sm-9">
+              <input class="form-control" v-model="profile.password"/>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
               <p class="mb-0">Phone</p>
             </div>
             <div class="col-sm-9">

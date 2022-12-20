@@ -13,6 +13,7 @@ import UserPageShef from "@/components/Administrations/Users/UserPageShef/UserPa
 import UserPageCourier from "@/components/Administrations/Users/UserPageCourier/UserPageCourier";
 import UserPageUser from "@/components/Administrations/Users/UserPageUser/UserPageUser";
 import UserPageCallCenter from "@/components/Administrations/Users/UserPageCallCenter/UserPageCallCenter";
+import Admin from "@/components/Administrations/Admin";
 const routes = [
     {
         path: '/home',
@@ -63,6 +64,42 @@ const routes = [
         path: '/userPageuser',
         name: 'UserPageUser',
         component: UserPageUser,
+    },
+    {
+        path: '/admin/users',
+        name: 'Admin',
+        component: Admin,
+        children:[
+            {
+                path: '',
+                name: 'AdminUsers',
+                component: UsersTable,
+            },
+            {
+                    path: ':id/edit',
+                    name: 'UserEdit',
+                    component: UserEdit,
+                    meta: {
+                        method: "PUT",
+                        subString:"/edit",
+                    }
+            },
+            {
+                path: ':id',
+                name: 'UserView',
+                component: UserView,
+                meta: { method: "GET" }
+            },
+            {
+                path: 'create',
+                name: 'UserCreate',
+                component: UserEdit,
+                meta: {
+                    method: "POST",
+                    subString:"/create",
+                }
+            },
+        ]
     },
     {
 
